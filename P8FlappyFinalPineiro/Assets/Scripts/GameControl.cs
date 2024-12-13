@@ -1,22 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
+
     public static GameControl instance;
     public GameObject gameOverText;
     public bool gameOver = false;
     public float scrollspeed = -1.5f;
 
-    public float scrollSpeed { get; internal set; }
-
-
-
-
-
+    public float scrollSpedd { get; internal set; }
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,15 +24,15 @@ public class GameControl : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }   
 
     // Update is called once per frame
     void Update()
     {
-        if (gameOver == true && Input.GetMouseButtonDown(0))
+       if (gameOver == true && Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene ().buildIndex);
-        }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        } 
     }
 
     public void BirdDied()
@@ -44,5 +40,6 @@ public class GameControl : MonoBehaviour
         gameOverText.SetActive(true);
         gameOver = true;
     }
+
 
 }
